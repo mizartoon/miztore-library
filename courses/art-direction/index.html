@@ -1,0 +1,704 @@
+<title>دوره‌ی آرت دایرکشن</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@400;500;700;800&family=DM+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F5F6F8;
+  --sheet:#FFFFFF;
+  --ink:#171C26;
+  --muted:#5A6272;
+  --line:#DADDE4;
+  --accent:#2344C4;
+  --accent-soft:#E6EBFB;
+  --marker:#D69A12;
+  --marker-soft:#FBF1D9;
+  --ok:#1F7A4D;
+  --font-display:"Lalezar","Vazirmatn",Tahoma,sans-serif;
+  --font-body:"Vazirmatn",Tahoma,"Segoe UI",sans-serif;
+  --font-mono:"DM Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#11141B;
+    --sheet:#181C25;
+    --ink:#E6E8EE;
+    --muted:#9BA3B4;
+    --line:#2A303C;
+    --accent:#8EA2FF;
+    --accent-soft:#1E2640;
+    --marker:#E8B84A;
+    --marker-soft:#2E2715;
+    --ok:#5CC98F;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#11141B;
+  --sheet:#181C25;
+  --ink:#E6E8EE;
+  --muted:#9BA3B4;
+  --line:#2A303C;
+  --accent:#8EA2FF;
+  --accent-soft:#1E2640;
+  --marker:#E8B84A;
+  --marker-soft:#2E2715;
+  --ok:#5CC98F;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95}
+.page{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:28px 80px;display:grid;grid-template-columns:260px minmax(0,1fr);gap:40px;align-items:start}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.latin{font-family:var(--font-mono);font-size:.82em;letter-spacing:.02em;direction:ltr;unicode-bidi:isolate}
+
+/* sidebar */
+aside{position:sticky;top:calc(env(safe-area-inset-top,0px) + 20px);max-height:calc(100vh - 40px);overflow:auto;display:flex;flex-direction:column;gap:18px;padding-block:4px}
+.brand{font-family:var(--font-display);font-size:28px;line-height:1.3}
+.brand small{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;color:var(--muted);direction:ltr;text-align:right}
+.progress{display:flex;flex-direction:column;gap:6px}
+.progress-bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+.progress-bar span{display:block;height:100%;width:0;background:var(--marker);transition:width .3s}
+.progress p{margin:0;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+nav ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+nav a{display:flex;gap:10px;align-items:baseline;padding:5px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:14px;line-height:1.6}
+nav a:hover{background:var(--accent-soft)}
+nav a .n{font-family:var(--font-mono);font-size:11px;color:var(--muted);min-width:22px}
+nav a.done .n{color:var(--ok)}
+
+/* main */
+main{display:flex;flex-direction:column;gap:56px;min-width:0}
+.hero{display:flex;flex-direction:column;gap:14px;padding-block:8px 8px;border-bottom:1px solid var(--line);padding-bottom:36px}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;color:var(--muted);direction:ltr;text-align:right}
+h1{font-family:var(--font-display);font-weight:400;font-size:clamp(40px,7vw,68px);line-height:1.25;margin:0;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:18px;max-width:62ch;margin:0;color:var(--muted)}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin:6px 0 0;padding:0;list-style:none;font-size:14px}
+.facts b{font-family:var(--font-display);font-weight:400;font-size:22px;margin-left:6px;color:var(--ink)}
+.note{background:var(--marker-soft);border-right:3px solid var(--marker);padding:14px 18px;border-radius:4px;font-size:15px;max-width:70ch}
+.note p{margin:0}
+
+section.mod{display:flex;flex-direction:column;gap:18px;scroll-margin-top:24px}
+.mod-head{display:flex;align-items:flex-end;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.mod-num{font-family:var(--font-mono);font-size:13px;color:var(--muted);direction:ltr;white-space:nowrap}
+.mod-num b{display:block;font-family:var(--font-display);font-weight:400;font-size:44px;line-height:1;color:var(--accent)}
+h2{font-family:var(--font-display);font-weight:400;font-size:clamp(26px,4vw,34px);line-height:1.4;margin:0;text-wrap:balance}
+h2 .latin{display:block;font-size:12px;color:var(--muted);letter-spacing:.12em;text-align:right}
+h3{font-size:18px;font-weight:800;margin:10px 0 0}
+.goal{font-size:15px;color:var(--muted);margin:0}
+.goal b{color:var(--ink)}
+.prose{max-width:68ch}
+.prose p{margin:0 0 12px}
+.prose ul,.prose ol{margin:0 0 12px;padding-right:22px}
+.prose li{margin-bottom:6px}
+.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.key{background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:12px 14px;font-size:14px;line-height:1.8}
+.key b{display:block;font-size:15px;margin-bottom:2px}
+.key .latin{color:var(--muted);font-size:11px}
+
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:520px}
+th,td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:700;background:var(--accent-soft)}
+tr:last-child td{border-bottom:0}
+td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;direction:ltr;text-align:right;white-space:nowrap}
+
+/* job ticket = exercise */
+.ticket{background:var(--sheet);border:1px dashed var(--muted);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ticket-top{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--muted);direction:ltr;justify-content:flex-end;border-bottom:1px solid var(--line);padding-bottom:8px}
+.ticket label{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.8;cursor:pointer}
+.ticket input{margin-top:6px;width:18px;height:18px;accent-color:var(--ok);flex:none}
+.ticket label:has(input:checked) span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--ok)}
+
+.res{display:flex;flex-direction:column;gap:6px;font-size:14px}
+.res h4{margin:0;font-size:13px;font-weight:700;color:var(--muted)}
+.res ul{margin:0;padding-right:20px}
+.res li{margin-bottom:2px}
+.tag{display:inline-block;font-size:11px;padding:0 7px;border-radius:10px;background:var(--accent-soft);color:var(--accent);margin-right:6px;vertical-align:2px}
+
+.plan td:first-child{white-space:nowrap}
+dl.gloss{display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:8px 18px;margin:0;font-size:14px}
+dl.gloss dt{font-family:var(--font-mono);direction:ltr;text-align:right;color:var(--accent);font-size:13px;padding-top:3px}
+dl.gloss dd{margin:0}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+.reset{background:none;border:1px solid var(--line);color:var(--muted);font:inherit;font-size:12px;padding:4px 10px;border-radius:6px;cursor:pointer;align-self:flex-start}
+
+@media (max-width:860px){
+  .page{grid-template-columns:1fr;gap:28px;padding-inline:16px}
+  aside{position:static;max-height:none;overflow:visible}
+  nav ol{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  dl.gloss{grid-template-columns:1fr;gap:2px}
+  dl.gloss dd{margin-bottom:10px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+</style>
+
+<div class="page" dir="rtl" lang="fa">
+<aside>
+  <div class="brand">آرت دایرکشن<small>ART DIRECTION · 16 WEEKS</small></div>
+  <div class="progress">
+    <div class="progress-bar"><span id="bar"></span></div>
+    <p id="progress-text">۰ از ۰ تمرین انجام شده</p>
+  </div>
+  <nav aria-label="فهرست درس‌ها">
+    <ol id="toc">
+      <li><a href="#m00"><span class="n">00</span>آرت دایرکتور کیست؟</a></li>
+      <li><a href="#m01"><span class="n">01</span>تاریخچه و الگوها</a></li>
+      <li><a href="#m02"><span class="n">02</span>ترکیب‌بندی و سلسله‌مراتب</a></li>
+      <li><a href="#m03"><span class="n">03</span>رنگ</a></li>
+      <li><a href="#m04"><span class="n">04</span>تایپوگرافی</a></li>
+      <li><a href="#m05"><span class="n">05</span>از بریف تا ایده</a></li>
+      <li><a href="#m06"><span class="n">06</span>تیم خلاق و ساختار آگهی</a></li>
+      <li><a href="#m07"><span class="n">07</span>عکاسی و کارگردانی شوت</a></li>
+      <li><a href="#m08"><span class="n">08</span>تیزر و استوری‌بورد</a></li>
+      <li><a href="#m09"><span class="n">09</span>بیلبورد، دیجیتال و سوشال</a></li>
+      <li><a href="#m10"><span class="n">10</span>سیستم کمپین</a></li>
+      <li><a href="#m11"><span class="n">11</span>ارائه و دفاع از ایده</a></li>
+      <li><a href="#m12"><span class="n">12</span>ابزارها</a></li>
+      <li><a href="#m13"><span class="n">13</span>پورتفولیو و ورود به بازار</a></li>
+      <li><a href="#plan"><span class="n">⏱</span>برنامه‌ی ۱۶ هفته‌ای</a></li>
+      <li><a href="#gloss"><span class="n">Aa</span>واژه‌نامه</a></li>
+      <li><a href="#books"><span class="n">📖</span>کتاب‌ها و منابع</a></li>
+    </ol>
+  </nav>
+  <button class="reset" id="reset" type="button">پاک‌کردن پیشرفت</button>
+</aside>
+
+<main>
+<header class="hero">
+  <div class="eyebrow">A SELF-STUDY COURSE IN ADVERTISING ART DIRECTION</div>
+  <h1>از <em>مد من</em> تا اولین کمپین خودت</h1>
+  <p class="lead">یک دوره‌ی خودآموز فارسی برای یادگرفتن حرفه‌ی آرت دایرکتوری در تبلیغات. هر فصل یک درس دارد، مفاهیم کلیدی، یک تمرین عملی به شکل «برگه‌ی سفارش کار» آژانس، و منابع رایگان برای عمیق‌ترشدن. تیک تمرین‌ها در همین مرورگر ذخیره می‌شود.</p>
+  <ul class="facts">
+    <li><b>۱۴</b>فصل</li>
+    <li><b>۱۶</b>هفته</li>
+    <li><b>۶–۸</b>ساعت در هفته</li>
+    <li><b>۳</b>کمپین کامل در پایان</li>
+  </ul>
+  <div class="note"><p>این متن آموزشی را خودم نوشته‌ام و بر اساس اصول شناخته‌شده‌ی این حرفه است. محتوای دوره‌های پولی را کپی نکرده‌ام. هر جا دوره یا ویدیوی رایگانی همان موضوع را خوب درس می‌دهد، لینکش را زیر همان فصل گذاشته‌ام. قاعده‌ی کلی: درس را بخوان، تمرین را انجام بده و بعد سراغ منبع برو.</p></div>
+</header>
+
+<!-- 00 -->
+<section class="mod" id="m00">
+  <div class="mod-head"><div class="mod-num">MODULE<b>00</b></div><h2>آرت دایرکتور کیست؟<span class="latin">WHAT AN ART DIRECTOR DOES</span></h2></div>
+  <p class="goal"><b>هدف:</b> بدانی دقیقاً چه شغلی را یاد می‌گیری و جایش در آژانس کجاست.</p>
+  <div class="prose">
+    <p>در «مد من»، دان دریپر <b>کریتیو دایرکتور</b> است: مسئول کیفیت همه‌ی کارهای خلاق آژانس. سال رومانو <b>آرت دایرکتور</b> است و پگی اولسن کارش را به عنوان <b>کپی‌رایتر</b> شروع می‌کند. این سه نقش هنوز هم ستون اصلی بخش خلاق آژانس‌ها هستند.</p>
+    <p>آرت دایرکتور مسئول «چگونه دیده‌شدن» ایده است. او با کپی‌رایتر یک تیم دونفره می‌سازد و هر دو با هم ایده را پیدا می‌کنند. بعد آرت دایرکتور تصمیم می‌گیرد آن ایده چه شکلی داشته باشد: چه تصویری، با چه ترکیب‌بندی، چه رنگی، چه فونتی، با کدام عکاس یا کارگردان و در چه قالبی.</p>
+    <p>مهم‌ترین نکته‌ی این فصل: <b>آرت دایرکتور اول «ایده‌ساز» است و بعد «طراح».</b> گرافیست خوب یک بریف را زیبا اجرا می‌کند. آرت دایرکتور خوب ایده‌ای پیدا می‌کند که ارزش اجرا داشته باشد و بعد اجرای آن را هدایت می‌کند، که معمولاً یعنی کار با عکاس، تصویرگر، کارگردان و طراح‌های دیگر.</p>
+  </div>
+  <h3>نردبان شغلی</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>عنوان</th><th>کار اصلی</th><th>سابقه‌ی معمول</th></tr></thead>
+    <tbody>
+      <tr><td>جونیور آرت دایرکتور <span class="latin">Junior AD</span></td><td>اجرای ایده‌ها، ریسایز و تطبیق فرمت‌ها، ایده‌دادن در تیم</td><td class="num">0–2 yrs</td></tr>
+      <tr><td>آرت دایرکتور <span class="latin">AD</span></td><td>ایده و اجرای کامل کمپین همراه با کپی‌رایتر، حضور سر شوت</td><td class="num">2–5 yrs</td></tr>
+      <tr><td>سنیور آرت دایرکتور <span class="latin">Senior AD</span></td><td>کمپین‌های بزرگ، راهنمایی جونیورها، ارائه به مشتری</td><td class="num">5–8 yrs</td></tr>
+      <tr><td>معاون مدیر خلاق <span class="latin">ACD</span></td><td>سرپرستی چند تیم خلاق روی یک یا چند برند</td><td class="num">7–10 yrs</td></tr>
+      <tr><td>مدیر خلاق <span class="latin">CD / ECD</span></td><td>مسئول کیفیت کل کار خلاق آژانس، نقش دان دریپر</td><td class="num">10+ yrs</td></tr>
+    </tbody>
+  </table></div>
+  <div class="ticket">
+    <div class="ticket-top"><span>JOB 00</span><span>CLIENT: YOU</span><span>DUE: WEEK 1</span></div>
+    <label><input type="checkbox" id="t00a"><span>یک دفترچه‌ی ایده (اسکچ‌بوک) بخر یا یک پوشه‌ی دیجیتال بساز. از امروز هر آگهی جالبی که می‌بینی را در آن ذخیره کن و زیرش یک خط بنویس: «ایده چه بود؟»</span></label>
+    <label><input type="checkbox" id="t00b"><span>قسمت‌های «The Wheel» (فصل ۱، قسمت ۱۳، صحنه‌ی ارائه‌ی Carousel) و «The Hobo Code» (فصل ۱، قسمت ۸) مد من را دوباره ببین. به نقش سال و دان در ساختن کار دقت کن.</span></label>
+  </div>
+  <div class="res"><h4>منابع این فصل</h4><ul>
+    <li><a href="https://miamiadschool.com/comprehensive-art-direction-career-guide-make-money-purpose/" target="_blank" rel="noopener">راهنمای کامل شغل آرت دایرکشن، Miami Ad School</a> <span class="tag">رایگان</span></li>
+    <li><a href="https://thefutur.com/content/how-to-become-a-creative-director" target="_blank" rel="noopener">How to become a Creative Director، The Futur</a> <span class="tag">رایگان</span></li>
+  </ul></div>
+</section>
+
+<!-- 01 -->
+<section class="mod" id="m01">
+  <div class="mod-head"><div class="mod-num">MODULE<b>01</b></div><h2>تاریخچه و الگوها<span class="latin">THE CREATIVE REVOLUTION & ITS HEIRS</span></h2></div>
+  <p class="goal"><b>هدف:</b> کارهای کلاسیکی را بشناسی که زبان مشترک همه‌ی آدم‌های این صنعت است.</p>
+  <div class="prose">
+    <p>دوران «مد من» همان دوره‌ای است که به آن <b>انقلاب خلاق</b> تبلیغات می‌گویند. تا قبل از آن، آگهی‌ها پر از ادعای بلند و تصویر شلوغ بودند. آژانس <b>DDB</b> به رهبری <b>بیل برنباخ</b> دو کار تازه کرد. اول اینکه آرت دایرکتور و کپی‌رایتر را کنار هم نشاند تا با هم ایده بسازند، در حالی که قبلاً کپی‌رایتر متن را می‌نوشت و برای طراح «می‌فرستاد». دوم اینکه صداقت، طنز و سادگی را جایگزین اغراق کرد. در خود سریال هم رقابت با DDB و کمپین فولکس‌واگن بارها مطرح می‌شود.</p>
+    <p>کارهایی که باید بشناسی و دلیل مهم‌بودنشان:</p>
+    <ul>
+      <li><b>Think Small، فولکس‌واگن بیتل، DDB، سال ۱۹۵۹.</b> آرت دایرکتور: هلموت کرونه. یک ماشین خیلی کوچک در دریایی از فضای سفید. فضای منفی خودش پیام است. شاید مهم‌ترین آگهی چاپی قرن بیستم باشد.</li>
+      <li><b>We Try Harder، شرکت Avis، DDB.</b> برند اعتراف می‌کند که «دوم» است و همین ضعف را به نقطه‌ی قوت تبدیل می‌کند. درس: حقیقت محصول می‌تواند خودش ایده باشد.</li>
+      <li><b>جلدهای مجله‌ی Esquire، جورج لوئیس، دهه‌ی ۱۹۶۰.</b> یک تصویر تکان‌دهنده بدون هیچ توضیحی. درس: ایده‌ی بصری قوی کپی لازم ندارد.</li>
+      <li><b>پل رند و سال باس.</b> رند لوگوهای IBM و ABC را طراحی کرد و باس تیتراژ فیلم‌های هیچکاک را. هر دو نشان دادند که سادگی هندسی چقدر ماندگار است.</li>
+      <li><b>آگهی «۱۹۸۴» اپل، Chiat/Day، به کارگردانی ریدلی اسکات.</b> تیزر را به رویداد فرهنگی تبدیل کرد.</li>
+      <li><b>Just Do It، نایکی، Wieden+Kennedy، سال ۱۹۸۸.</b> نمونه‌ی یک «ایده‌ی کمپین» که ده‌ها سال زنده مانده است.</li>
+      <li><b>آگهی‌های قرمز و سفید مجله‌ی اکونومیست، آژانس AMV و دیوید ابات.</b> فقط تایپوگرافی روی زمینه‌ی قرمز. نشان می‌دهد یک «سیستم بصری» چطور برند را قابل‌تشخیص می‌کند.</li>
+    </ul>
+    <p>وقتی این کارها را نگاه می‌کنی، زیبایی‌شان را تحسین نکن. بپرس <b>ایده چه بود و تصویر چطور آن ایده را رساند؟</b></p>
+  </div>
+  <div class="ticket">
+    <div class="ticket-top"><span>JOB 01</span><span>CLIENT: ARCHIVE</span><span>DUE: WEEK 1</span></div>
+    <label><input type="checkbox" id="t01a"><span>همه‌ی آگهی‌های بالا را جستجو کن و در دفترچه ذخیره کن. زیر هر کدام سه خط بنویس: ایده، نقش تصویر، نقش متن.</span></label>
+    <label><input type="checkbox" id="t01b"><span>آگهی Think Small را با یک آگهی خودروی امروزی مقایسه کن. بنویس چه چیزی عوض شده و چه چیزی نه.</span></label>
+  </div>
+  <div class="res"><h4>منابع این فصل</h4><ul>
+    <li><a href="https://www.dandad.org/learning" target="_blank" rel="noopener">D&amp;AD Learning</a>: با ثبت‌نام، محتوای آموزشی رایگان ایمیل می‌شود <span class="tag">رایگان</span></li>
+    <li><a href="https://www.coursera.org/learn/role-of-advertising" target="_blank" rel="noopener">Advertising and Society، Coursera</a>: پیش‌زمینه‌ی تاریخی و اجتماعی تبلیغات <span class="tag">Audit رایگان</span></li>
+  </ul></div>
+</section>
+
+<!-- 02 -->
+<section class="mod" id="m02">
+  <div class="mod-head"><div class="mod-num">MODULE<b>02</b></div><h2>ترکیب‌بندی و سلسله‌مراتب بصری<span class="latin">COMPOSITION & HIERARCHY</span></h2></div>
+  <p class="goal"><b>هدف:</b> چشم بیننده را آگاهانه روی صفحه هدایت کنی.</p>
+  <div class="prose">
+    <p>هر آگهی باید به یک سؤال جواب بدهد: <b>بیننده اول چه چیزی را ببیند، دوم چه، سوم چه؟</b> به این «سلسله‌مراتب بصری» می‌گویند. آگهی‌ای که همه‌چیزش بزرگ و پررنگ است در واقع هیچ چیزش دیده نمی‌شود. آگهی خیابانی و سوشال معمولاً فقط یک تا سه ثانیه فرصت دارد.</p>
+    <p>ابزارهای کنترل نگاه، به ترتیب قدرت:</p>
+    <ol>
+      <li><b>اندازه:</b> بزرگ‌ترین عنصر اول دیده می‌شود.</li>
+      <li><b>کنتراست:</b> روشن روی تیره، رنگ اشباع روی خاکستری، یک چیز متفاوت بین چیزهای مشابه.</li>
+      <li><b>چهره و نگاه:</b> چشم ما اول صورت را پیدا می‌کند و بعد مسیر نگاه آن صورت را دنبال می‌کند.</li>
+      <li><b>جایگاه:</b> در صفحه‌های راست‌به‌چپ مثل فارسی، نگاه معمولاً از بالا-راست شروع می‌شود. در طرح دوزبانه این را در نظر بگیر.</li>
+      <li><b>فضای خالی:</b> هر چه دور یک عنصر خالی‌تر باشد، مهم‌تر به نظر می‌رسد. Think Small را یادت هست؟</li>
+    </ol>
+  </div>
+  <div class="keys">
+    <div class="key"><b>قانون یک‌سوم</b><span class="latin">RULE OF THIRDS</span><br>کادر را با دو خط افقی و دو خط عمودی به ۹ خانه تقسیم کن و عنصر اصلی را روی یکی از تقاطع‌ها بگذار.</div>
+    <div class="key"><b>گشتالت: مجاورت</b><span class="latin">PROXIMITY</span><br>چیزهایی که کنار هم هستند «یک گروه» خوانده می‌شوند. تیتر و زیرتیتر را کنار هم بگذار و لوگو را جدا.</div>
+    <div class="key"><b>گشتالت: شباهت</b><span class="latin">SIMILARITY</span><br>عناصر هم‌رنگ یا هم‌شکل به هم ربط پیدا می‌کنند. از همین برای ساختن سیستم استفاده کن.</div>
+    <div class="key"><b>گشتالت: بستار</b><span class="latin">CLOSURE</span><br>ذهن شکل ناقص را کامل می‌کند. پایه‌ی بسیاری از ایده‌های بصری هوشمندانه همین است.</div>
+    <div class="key"><b>تعادل</b><span class="latin">BALANCE</span><br>تعادل متقارن حس رسمی و آرام می‌دهد و تعادل نامتقارن حس پویا و مدرن.</div>
+    <div class="key"><b>گرید</b><span class="latin">GRID</span><br>شبکه‌ی ستون‌ها و حاشیه‌ها که نظم ایجاد می‌کند. آن را یک بار بساز و همه‌ی فرمت‌ها را روی آن بچین.</div>
+  </div>
+  <div class="ticket">
+    <div class="ticket-top"><span>JOB 02</span><span>CLIENT: PRACTICE</span><span>DUE: WEEK 2</span></div>
+    <label><input type="checkbox" id="t02a"><span>۵ آگهی چاپی را پرینت بگیر یا در یک نرم‌افزار باز کن و با شماره‌گذاری ۱، ۲، ۳ مشخص کن نگاه تو به چه ترتیبی حرکت کرد.</span></label>
+    <label><input type="checkbox" id="t02b"><span>فقط با سه مستطیل سیاه روی یک کادر سفید، سه ترکیب بساز که به ترتیب حس «آرامش»، «تنش» و «حرکت» بدهند.</span></label>
+    <label><input type="checkbox" id="t02c"><span>یک پوستر شلوغ از اطرافت پیدا کن و آن را طوری بازطراحی کن که فقط یک پیام اصلی داشته باشد.</span></label>
+  </div>
+  <div class="res"><h4>منابع این فصل</h4><ul>
+    <li><a href="https://www.coursera.org/learn/fundamentals-of-graphic-design" target="_blank" rel="noopener">Fundamentals of Graphic Design، دانشکده‌ی CalArts در Coursera</a>: بخش ترکیب‌بندی <span class="tag">Audit رایگان</span></li>
+    <li><a href="https://www.youtube.com/c/TheFuturAcademy" target="_blank" rel="noopener">کانال The Futur Academy</a>: ویدیوهای لی‌آوت <span class="tag">رایگان</span></li>
+  </ul></div>
+</section>
+
+<!-- 03 -->
+<section class="mod" id="m03">
+  <div class="mod-head"><div class="mod-num">MODULE<b>03</b></div><h2>رنگ<span class="latin">COLOUR</span></h2></div>
+  <p class="goal"><b>هدف:</b> رنگ را به عنوان ابزار معنا و تشخیص برند به کار ببری، نه فقط به عنوان تزئین.</p>
+  <div class="prose">
+    <p>رنگ سریع‌ترین چیزی است که مغز پردازش می‌کند، حتی قبل از شکل و کلمه. برای همین برندهای بزرگ «مالک» رنگی می‌شوند: قرمز کوکاکولا، زرد مک‌دونالد، بنفش میلکا. کار آرت دایرکتور این است که رنگ را در خدمت دو چیز قرار دهد: <b>تشخیص برند</b> و <b>حس ایده</b>.</p>
+    <ul>
+      <li><b>سه ویژگی رنگ:</b> فام (Hue) یعنی خود رنگ، اشباع (Saturation) یعنی خلوص آن، و روشنایی (Value). در کنتراست، روشنایی مهم‌تر از فام است. اگر طرحت را سیاه‌وسفید کنی و هنوز خوانا بماند، کنتراستش درست است.</li>
+      <li><b>قانون ۶۰-۳۰-۱۰:</b> رنگ غالب ۶۰٪، رنگ دوم ۳۰٪ و رنگ تأکید ۱۰٪. رنگ تأکید را برای چیزی نگه دار که باید دیده شود، مثل محصول یا دکمه.</li>
+      <li><b>هارمونی‌ها:</b> مکمل (دو رنگ روبه‌روی هم روی چرخه‌ی رنگ، پرکنتراست)، آنالوگ (رنگ‌های همسایه، آرام) و تک‌رنگ (یک فام در روشنایی‌های مختلف، شیک و برندمحور).</li>
+      <li><b>معنای رنگ فرهنگی است.</b> سبز در ایران معنای مذهبی و طبیعت دارد و سفید در بعضی فرهنگ‌ها رنگ عزاست. معنای رنگ را از مخاطب خودت بپرس، نه از جدول‌های «روانشناسی رنگ» اینترنتی.</li>
+      <li><b>درجه‌بندی رنگ (Color grading)</b> در عکس و فیلم حال‌وهوا را می‌سازد. رنگ‌های گرم و کم‌اشباع حس نوستالژی می‌دهند و رنگ‌های سرد و پرکنتراست حس تکنولوژی و هیجان.</li>
+    </ul>
+  </div>
+  <div class="ticket">
+    <div class="ticket-top"><span>JOB 03</span><span>CLIENT: PRACTICE</span><span>DUE: WEEK 3</span></div>
+    <label><input type="checkbox" id="t03a"><span>برای سه برند ایرانی، پالت رنگی آن‌ها را از روی بسته‌بندی و تبلیغاتشان استخراج کن (با ابزار قطره‌چکان در Photopea یا Figma) و بنویس چرا به نظرت آن رنگ‌ها انتخاب شده‌اند.</span></label>
+    <label><input type="checkbox" id="t03b"><span>یک آگهی را سه بار با سه پالت متفاوت رنگ کن: یک بار نوستالژیک، یک بار لوکس و یک بار پرانرژی. متن و تصویر ثابت بماند.</span></label>
+  </div>
+  <div class="res"><h4>منابع این فصل</h4><ul>
+    <li><a href="https://www.coursera.org/specializations/graphic-design" target="_blank" rel="noopener">Graphic Design Specialization، CalArts</a>: بخش «Shape and Color» <span class="tag">Audit رایگان</span></li>
+  </ul></div>
+</section>
+
+<!-- 04 -->
+<section class="mod" id="m04">
+  <div class="mod-head"><div class="mod-num">MODULE<b>04</b></div><h2>تایپوگرافی، فارسی و لاتین<span class="latin">TYPOGRAPHY</span></h2></div>
+  <p class="goal"><b>هدف:</b> حروف را به عنوان تصویر ببینی و تیتری بچینی که حرف‌زدن آن شنیده شود.</p>
+  <div class="prose">
+    <p>در تبلیغات، تایپوگرافی «لحن صدا»ی برند است. یک جمله را با فونت بلک و درشت بنویس و بعد با یک فونت نازک و ظریف. دو پیام متفاوت می‌گیری. آرت دایرکتور حرفه‌ای فونت را برای حس انتخاب می‌کند، نه برای اینکه «قشنگ» است.</p>
+    <ul>
+      <li><b>خانواده‌های اصلی لاتین:</b> سریف (Serif) کلاسیک و معتبر است، سن‌سریف (Sans) مدرن و تمیز، اسلب (Slab) محکم و صنعتی، اسکریپت (Script) شخصی و احساسی و دیسپلی (Display) برای تیترهای پرشخصیت.</li>
+      <li><b>خانواده‌های فارسی:</b> نسخ‌محور (کتابی و خوانا)، فونت‌های هندسی و مدرن مثل وزیرمتن، فونت‌های دیسپلی تیتر مثل لاله‌زار که تیتر همین صفحه با آن نوشته شده، و خوشنویسی (نستعلیق، شکسته) برای حس سنتی و شاعرانه که باید با احتیاط به کار برود.</li>
+      <li><b>سلسله‌مراتب با تایپ:</b> حداکثر دو خانواده‌ی فونت در یک آگهی. تفاوت را با وزن (Bold یا Regular) و اندازه بساز، نه با فونت‌های زیاد.</li>
+      <li><b>فاصله‌ها:</b> کرنینگ (فاصله‌ی بین دو حرف، مهم در تیترهای لاتین درشت)، ترکینگ (فاصله‌ی کل کلمه) و لدینگ (فاصله‌ی سطرها). تیتر درشت لدینگ فشرده می‌خواهد و متن بدنه لدینگ باز.</li>
+      <li><b>نکته‌های مخصوص فارسی:</b> کشیده (ـ) را فقط برای ترازکردن استفاده نکن، چون زشت می‌شود. در متن فارسی اعداد فارسی به کار ببر. نیم‌فاصله را رعایت کن (می‌شود، نه می شود). وقتی فارسی و لاتین کنار هم می‌آیند، فونت لاتینی انتخاب کن که ارتفاع و وزن بصری‌اش با فونت فارسی هماهنگ باشد.</li>
+      <li><b>تایپ به عنوان تصویر:</b> بعضی از بهترین آگهی‌ها فقط تایپوگرافی‌اند، مثل آگهی‌های اکونومیست. کلمه می‌تواند خودش شکل ایده را بگیرد.</li>
+    </ul>
+  </div>
+  <div class="ticket">
+    <div class="ticket-top"><span>JOB 04</span><span>CLIENT: PRACTICE</span><span>DUE: WEEK 4</span></div>
+    <label><input type="checkbox" id="t04a"><span>جمله‌ی «امروز را از دست نده» را با ۵ فونت مختلف بنویس و کنار هر کدام بنویس چه آدمی و با چه لحنی آن را می‌گوید.</span></label>
+    <label><input type="checkbox" id="t04b"><span>یک پوستر فقط تایپوگرافی (بدون عکس) برای یک کافه‌ی خیالی طراحی کن که هم فارسی و هم لاتین داشته باشد.</span></label>
+    <label><input type="checkbox" id="t04c"><span>یک کلمه را انتخاب کن (مثلاً «سقوط»، «فشار» یا «رشد») و آن را طوری بچین که شکل حروف معنای کلمه را نشان دهد.</span></label>
+  </div>
+  <div class="res"><h4>منابع این فصل</h4><ul>
+    <li><a href="https://www.classcentral.com/course/youtube-typography-design-48354" target="_blank" rel="noopener">Typography &amp; Design، The Futur</a> <span class="tag">رایگان</span></li>
+    <li><a href="https://fonts.google.com/specimen/Vazirmatn" target="_blank" rel="noopener">فونت وزیرمتن در Google Fonts</a>: فونت فارسی آزاد و رایگان <span class="tag">رایگان</span></li>
+    <li><a href="https://www.coursera.org/learn/fundamentals-of-graphic-design" target="_blank" rel="noopener">Fundamentals of Graphic Design</a>: هفته‌ی تایپوگرافی <span class="tag">Audit رایگان</span></li>
+  </ul></div>
+</section>
+
+<!-- 05 -->
+<section class="mod" id="m05">
+  <div class="mod-head"><div class="mod-num">MODULE<b>05</b></div><h2>از بریف تا ایده<span class="latin">BRIEF → INSIGHT → IDEA</span></h2></div>
+  <p class="goal"><b>هدف:</b> مهم‌ترین مهارت این شغل. یاد بگیری ایده را پیدا کنی و منتظر الهام نمانی.</p>
+  <div class="prose">
+    <p>هر کار تبلیغاتی با یک <b>بریف خلاق</b> شروع می‌شود، یک صفحه که معمولاً استراتژیست آژانس آن را می‌نویسد. قسمت‌های اصلی‌اش این‌هاست:</p>
+    <ul>
+      <li><b>مسئله:</b> چرا اصلاً تبلیغ می‌کنیم؟</li>
+      <li><b>مخاطب:</b> دقیقاً چه کسی؟ یک آدم واقعی را توصیف کن، نه «زنان ۲۵ تا ۴۰ ساله».</li>
+      <li><b>بینش (Insight):</b> یک حقیقت انسانی درباره‌ی مخاطب که او با شنیدنش بگوید «آره، دقیقاً!».</li>
+      <li><b>پیام واحد (Single-minded proposition):</b> تنها چیزی که می‌خواهیم مخاطب به خاطر بسپارد.</li>
+      <li><b>دلیل باور (Reason to believe)، لحن، فرمت‌ها و محدودیت‌ها.</b></li>
+    </ul>
+    <p><b>ایده</b> پلی است بین پیام محصول و بینش مخاطب که به شکلی غیرمنتظره ساخته می‌شود. ایده را در یک جمله بنویس. اگر در یک جمله جا نشد، هنوز ایده نیست.</p>
+    <h3>روش کار: کمیت، بعد کیفیت</h3>
+    <p>حرفه‌ای‌ها از یک بریف ده‌ها ایده بیرون می‌کشند و بیشترشان را دور می‌ریزند. قاعده‌ی تمرینی این دوره: <b>برای هر بریف حداقل ۲۰ اسکچ بندانگشتی (Thumbnail)</b> بکش، هر کدام در یک مستطیل کوچک با خودکار و در کمتر از دو دقیقه. ده ایده‌ی اول معمولاً همان‌هایی هستند که به ذهن همه می‌رسد. ایده‌ی خوب معمولاً از بیستمی به بعد پیدا می‌شود.</p>
+  </div>
+  <h3>تکنیک‌های ایده‌پردازی بصری</h3>
+  <div class="keys">
+    <div class="key"><b>استعاره‌ی بصری</b><span class="latin">VISUAL METAPHOR</span><br>محصول یا فایده‌اش را به شکل چیز دیگری نشان بده. مثلاً چسب قوی که دو نیمه‌ی یک چیز غیرممکن را کنار هم نگه داشته است.</div>
+    <div class="key"><b>کنار هم گذاشتن</b><span class="latin">JUXTAPOSITION</span><br>دو تصویر که کنار هم معنای سومی می‌سازند.</div>
+    <div class="key"><b>اغراق</b><span class="latin">EXAGGERATION</span><br>فایده‌ی محصول را آن‌قدر بزرگ کن که خنده‌دار یا حیرت‌انگیز شود.</div>
+    <div class="key"><b>قبل و بعد / نتیجه</b><span class="latin">DEMONSTRATION</span><br>به جای خود محصول، نتیجه‌ی استفاده از آن را نشان بده.</div>
+    <div class="key"><b>غیاب</b><span class="latin">ABSENCE</span><br>چیزی را حذف کن تا جای خالی‌اش پیام را برساند.</div>
+    <div class="key"><b>ترکیب</b><span class="latin">FUSION</span><br>محصول و نماد فایده‌اش را در یک شکل واحد ادغام کن.</div>
+    <div class="key"><b>وارونه‌کردن کلیشه</b><span class="latin">SUBVERSION</span><br>تصویری که همه انتظارش را دارند را بردار و یک جزئش را برعکس کن.</div>
+    <div class="key"><b>حقیقت صادقانه</b><span class="latin">HONESTY</span><br>مثل Avis: ضعف محصول را بگو و تبدیلش کن به دلیل خرید.</div>
+  </div>
+  <div class="ticket">
+    <div class="ticket-top"><span>JOB 05</span><span>CLIENT: پاک‌کن «آسان»</span><span>DUE: WEEK 5</span></div>
+    <label><input type="checkbox" id="t05a"><span><b>بریف:</b> پاک‌کنی که بدون ردپا پاک می‌کند. مخاطب: دانش‌آموزان کنکوری و والدینشان. پیام واحد: «اشتباه کن، مهم نیست». با ۸ تکنیک این فصل، ۲۰ اسکچ بندانگشتی بکش.</span></label>
+    <label><input type="checkbox" id="t05b"><span>سه ایده‌ی برتر را انتخاب کن و هر کدام را در یک جمله بنویس.</span></label>
+    <label><input type="checkbox" id="t05c"><span>بهترین ایده را به شکل یک آگهی چاپی با کیفیت «اسکچ تمیز» (Marker comp) اجرا کن.</span></label>
+  </div>
+  <div class="res"><h4>منابع این فصل</h4><ul>
+    <li><a href="https://miamiadschool.com/creative-exercises-for-art-direction" target="_blank" rel="noopener">تمرین‌های خلاقیت برای آرت دایرکشن، Miami Ad School</a> <span class="tag">رایگان</span></li>
+    <li><a href="https://www.coursera.org/learn/designing-breakthrough-advertisements-basics-to-begin" target="_blank" rel="noopener">Designing Breakthrough Advertisements، Coursera</a> <span class="tag">Audit رایگان</span></li>
+    <li><a href="https://campus.dandad.org/courses/art-science-of-ideas" target="_blank" rel="noopener">Art &amp; Science of Ideas، D&amp;AD</a>: بهترین دوره‌ی ایده‌پردازی، ولی حدود ۱۵۰ پوند <span class="tag">پولی</span></li>
+  </ul></div>
+</section>
+
+<!-- 06 -->
+<section class="mod" id="m06">
+  <div class="mod-head"><div class="mod-num">MODULE<b>06</b></div><h2>تیم خلاق و ساختار آگهی<span class="latin">THE TEAM & THE AD</span></h2></div>
+  <p class="goal"><b>هدف:</b> اجزای یک آگهی را بشناسی و بدانی رابطه‌ی تصویر و متن چطور ایده می‌سازد.</p>
+  <div class="prose">
+    <p>اجزای کلاسیک آگهی چاپی:</p>
+    <ul>
+      <li><b>تصویر اصلی (Key visual):</b> معمولاً اولین چیزی که دیده می‌شود.</li>
+      <li><b>تیتر (Headline).</b></li>
+      <li><b>متن بدنه (Body copy):</b> امروزه کوتاه شده یا کلاً حذف می‌شود.</li>
+      <li><b>تصویر محصول (Pack shot).</b></li>
+      <li><b>لوگو و شعار برند (Tagline / Endline).</b></li>
+    </ul>
+    <p>مهم‌ترین درس برنباخ این است: <b>تصویر و تیتر نباید یک حرف را تکرار کنند.</b> اگر عکس یک لیوان قهوه است و تیتر می‌گوید «قهوه‌ی خوشمزه»، یکی از آن دو اضافه است. تیتر خوب به تصویر معنای دیگری می‌دهد و تصویر خوب تیتر را کامل می‌کند. ایده در همین فاصله‌ی بین آن دو شکل می‌گیرد.</p>
+    <p>تست ساده: تیتر را بپوشان و فقط تصویر را ببین. بعد تصویر را بپوشان و فقط تیتر را بخوان. اگر هر کدام به‌تنهایی کل پیام را می‌رساند، آگهی‌ات «تکرار» است، نه «ایده».</p>
+    <p>یک نوع دیگر هم هست: <b>آگهی فقط تصویری (Visual-only)</b>. ایده آن‌قدر بصری است که فقط لوگو لازم دارد. این نوع کار در جشنواره‌های بین‌المللی خیلی دیده می‌شود، چون زبان نمی‌شناسد.</p>
+    <p><b>کار با کپی‌رایتر:</b> ایده مال تیم است، نه مال یک نفر. آرت دایرکتور می‌تواند تیتر پیشنهاد دهد و کپی‌رایتر تصویر. بهترین تیم‌ها «بله، و...» می‌گویند و نه «نه، ولی...».</p>
+  </div>
+  <div class="ticket">
+    <div class="ticket-top"><span>JOB 06</span><span>CLIENT: PRACTICE</span><span>DUE: WEEK 6</span></div>
+    <label><input type="checkbox" id="t06a"><span>تست پوشاندن را روی ۱۰ آگهی انجام بده و آن‌ها را به دو دسته‌ی «تکرار» و «ایده» تقسیم کن.</span></label>
+    <label><input type="checkbox" id="t06b"><span>یک عکس معمولی انتخاب کن و سه تیتر متفاوت برایش بنویس که هر کدام معنای عکس را کاملاً عوض کند.</span></label>
+    <label><input type="checkbox" id="t06c"><span>اگر دوستی داری که اهل نوشتن است، یک بریف را با هم به شکل تیم دونفره کار کنید.</span></label>
+  </div>
+</section>
+
+<!-- 07 -->
+<section class="mod" id="m07">
+  <div class="mod-head"><div class="mod-num">MODULE<b>07</b></div><h2>عکاسی و کارگردانی شوت<span class="latin">DIRECTING A PHOTO SHOOT</span></h2></div>
+  <p class="goal"><b>هدف:</b> بتوانی ایده را به عکاس و تیم تولید منتقل کنی و روز شوت کار را هدایت کنی.</p>
+  <div class="prose">
+    <p>آرت دایرکتور معمولاً خودش عکاسی نمی‌کند، ولی باید زبان عکاسی را بلد باشد تا بتواند دقیق بگوید چه می‌خواهد. مراحل کار:</p>
+    <ol>
+      <li><b>مودبورد (Moodboard):</b> تابلویی از ۱۵ تا ۳۰ تصویر مرجع برای نور، رنگ، ترکیب‌بندی، استایل و بازیگر. مودبورد باید یک حس واحد و روشن بدهد، نه مجموعه‌ای از «عکس‌های قشنگ».</li>
+      <li><b>فهرست شات (Shot list):</b> تک‌تک کادرهایی که لازم است، با فرمت هر کدام. کادر افقی برای بیلبورد، عمودی برای استوری و مربع برای پست. این را <b>قبل از شوت</b> مشخص کن تا عکاس فضای کافی دور سوژه بگذارد.</li>
+      <li><b>انتخاب تیم:</b> عکاس (بر اساس پورتفولیو و سبکش)، استایلیست، گریمور، طراح صحنه و کستینگ بازیگر.</li>
+      <li><b>روز شوت:</b> آرت دایرکتور کنار مانیتور می‌ایستد و مراقب ایده است. اگر عکس زیباست ولی ایده را نمی‌رساند، هنوز کار تمام نشده.</li>
+      <li><b>پس‌تولید:</b> انتخاب عکس، رتوش و درجه‌بندی رنگ.</li>
+    </ol>
+  </div>
+  <div class="keys">
+    <div class="key"><b>نور سخت و نرم</b><span class="latin">HARD / SOFT LIGHT</span><br>نور سخت سایه‌ی تیز می‌سازد و دراماتیک است. نور نرم پخش است و حس دوستانه و زیبایی می‌دهد.</div>
+    <div class="key"><b>لنز</b><span class="latin">WIDE / TELE</span><br>لنز واید فضا را بزرگ و پرانرژی نشان می‌دهد. لنز تله پس‌زمینه را محو و سوژه را جدا می‌کند.</div>
+    <div class="key"><b>زاویه</b><span class="latin">LOW / HIGH ANGLE</span><br>زاویه‌ی پایین سوژه را قدرتمند نشان می‌دهد و زاویه‌ی بالا آسیب‌پذیر.</div>
+    <div class="key"><b>عمق میدان</b><span class="latin">DEPTH OF FIELD</span><br>عمق کم یعنی فقط سوژه واضح است و تمرکز مطلق روی آن.</div>
+  </div>
+  <div class="ticket">
+    <div class="ticket-top"><span>JOB 07</span><span>CLIENT: پاک‌کن «آسان»</span><span>DUE: WEEK 7</span></div>
+    <label><input type="checkbox" id="t07a"><span>برای ایده‌ی فصل ۵ یک مودبورد ۲۰ تصویری بساز (در Figma یا Pinterest).</span></label>
+    <label><input type="checkbox" id="t07b"><span>یک فهرست شات ۶ کادری با فرمت هر کادر بنویس.</span></label>
+    <label><input type="checkbox" id="t07c"><span>با گوشی خودت عکاسی کن. نور پنجره کافی است. سه نسخه با سه نورپردازی مختلف بگیر و بهترین را انتخاب کن.</span></label>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="mod" id="m08">
+  <div class="mod-head"><div class="mod-num">MODULE<b>08</b></div><h2>تیزر و استوری‌بورد<span class="latin">FILM & STORYBOARDS</span></h2></div>
+  <p class="goal"><b>هدف:</b> ایده را برای ویدیو بنویسی و بکشی و مراحل تولید تیزر را بشناسی.</p>
+  <div class="prose">
+    <p>در تیزر، آرت دایرکتور و کپی‌رایتر ایده و فیلمنامه را می‌سازند و بعد <b>کارگردان</b> (که معمولاً از بیرون آژانس و از یک شرکت تولید می‌آید) آن را اجرا می‌کند. کار آرت دایرکتور این است که حس و ایده در مسیر اجرا گم نشود.</p>
+    <ol>
+      <li><b>فیلمنامه‌ی دوستونی:</b> ستون تصویر و ستون صدا (دیالوگ، صداگذاری و موسیقی).</li>
+      <li><b>استوری‌بورد:</b> کادرهای کلیدی به ترتیب. لازم نیست نقاشی‌ات خوب باشد، آدمک کافی است. آنچه مهم است <b>اندازه‌ی نما</b> (دور، متوسط، نزدیک) و <b>حرکت دوربین</b> است.</li>
+      <li><b>انیماتیک:</b> استوری‌بورد با صدا و زمان‌بندی. برای تست ریتم تیزر قبل از هزینه‌کردن ساخته می‌شود.</li>
+      <li><b>تریتمنت کارگردان:</b> کارگردان‌ها نسخه‌ی خودشان از ایده را با مرجع‌های تصویری پیشنهاد می‌دهند. آژانس و مشتری یکی را انتخاب می‌کنند.</li>
+      <li><b>جلسه‌ی پیش‌تولید (PPM):</b> همه‌ی جزئیات با مشتری تأیید می‌شود: بازیگر، لوکیشن، لباس و رنگ.</li>
+      <li><b>فیلمبرداری، تدوین آفلاین، تدوین آنلاین، درجه‌بندی رنگ و صداگذاری.</b></li>
+    </ol>
+    <p><b>قواعد ویدیوی امروز:</b> برند یا ایده را در ۳ ثانیه‌ی اول نشان بده، چون در شبکه‌های اجتماعی بیننده زود رد می‌شود. طوری طراحی کن که بی‌صدا هم فهمیده شود و زیرنویس بگذار. نسخه‌ی عمودی ۹:۱۶ را از اول در نظر بگیر، نه اینکه بعداً کادر افقی را ببری. نسخه‌های کوتاه ۶ و ۱۵ ثانیه‌ای هم بساز.</p>
+  </div>
+  <div class="ticket">
+    <div class="ticket-top"><span>JOB 08</span><span>CLIENT: پاک‌کن «آسان»</span><span>DUE: WEEK 8</span></div>
+    <label><input type="checkbox" id="t08a"><span>ایده‌ی پاک‌کن را به یک تیزر ۱۵ ثانیه‌ای تبدیل کن: فیلمنامه‌ی دوستونی و استوری‌بورد ۸ کادری.</span></label>
+    <label><input type="checkbox" id="t08b"><span>با عکس کادرهای استوری‌بورد و یک موسیقی، در DaVinci Resolve یا CapCut یک انیماتیک بساز.</span></label>
+    <label><input type="checkbox" id="t08c"><span>یک نسخه‌ی عمودی ۶ ثانیه‌ای برای استوری از همان ایده دربیاور.</span></label>
+  </div>
+  <div class="res"><h4>منابع این فصل</h4><ul>
+    <li><a href="https://www.classcentral.com/course/youtube-motion-design-process-art-direction-style-frames-109064" target="_blank" rel="noopener">Motion Design Process: Art Direction &amp; Style Frames، The Futur</a> <span class="tag">رایگان</span></li>
+    <li><a href="https://www.domestika.org/en/courses/245-creative-direction-of-an-advertising-spot" target="_blank" rel="noopener">Creative Direction of an Advertising Spot، Domestika</a> <span class="tag">پولی، ارزان</span></li>
+  </ul></div>
+</section>
+
+<!-- 09 -->
+<section class="mod" id="m09">
+  <div class="mod-head"><div class="mod-num">MODULE<b>09</b></div><h2>بیلبورد، دیجیتال و سوشال<span class="latin">OOH · DIGITAL · SOCIAL</span></h2></div>
+  <p class="goal"><b>هدف:</b> هر رسانه را با قواعد خودش طراحی کنی.</p>
+  <div class="prose">
+    <p><b>بیلبورد (OOH)</b> سخت‌ترین و در عین حال بهترین مدرسه‌ی سادگی است. راننده حدود ۳ ثانیه وقت دارد. قاعده‌ی سرانگشتی: یک تصویر، یک پیام، حداکثر حدود ۷ کلمه و لوگوی خوانا از دور. طرحت را روی صفحه‌ی گوشی به اندازه‌ی یک تمبر کوچک کن. اگر هنوز فهمیده می‌شود، برای بیلبورد مناسب است.</p>
+    <p><b>سوشال:</b> رقیب تو آگهی‌های دیگر نیستند، پست دوستان مخاطب است. آگهی‌ای که شبیه «آگهی» باشد رد می‌شود. محتوایی بساز که ارزش دیدن داشته باشد.</p>
+    <p><b>تبلیغات عملکردی (Performance):</b> در بنرهای دیجیتال، آرت دایرکشن با داده سنجیده می‌شود. چند نسخه بساز و آزمایش کن (A/B test). اینجا زیبایی مهم است، ولی نتیجه مهم‌تر.</p>
+  </div>
+  <h3>فرمت‌های رایج</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>رسانه</th><th>ابعاد (پیکسل)</th><th>نسبت</th><th>نکته</th></tr></thead>
+    <tbody>
+      <tr><td>پست اینستاگرام (عمودی)</td><td class="num">1080 × 1350</td><td class="num">4:5</td><td>بیشترین فضای صفحه در فید</td></tr>
+      <tr><td>استوری / ریلز</td><td class="num">1080 × 1920</td><td class="num">9:16</td><td>حاشیه‌ی بالا و پایین را برای رابط کاربری خالی بگذار</td></tr>
+      <tr><td>پست مربع</td><td class="num">1080 × 1080</td><td class="num">1:1</td><td>برای کاروسل مناسب است</td></tr>
+      <tr><td>ویدیوی افقی (یوتیوب و تلویزیون)</td><td class="num">1920 × 1080</td><td class="num">16:9</td><td>فرمت پایه‌ی تیزر</td></tr>
+      <tr><td>بنر نمایشی (MPU)</td><td class="num">300 × 250</td><td class="num">6:5</td><td>کوچک است، پس پیام خیلی کوتاه</td></tr>
+      <tr><td>بیلبورد</td><td class="num">متغیر</td><td class="num">≈ 3:1</td><td>قانون ۳ ثانیه و ۷ کلمه</td></tr>
+    </tbody>
+  </table></div>
+  <div class="ticket">
+    <div class="ticket-top"><span>JOB 09</span><span>CLIENT: پاک‌کن «آسان»</span><span>DUE: WEEK 9</span></div>
+    <label><input type="checkbox" id="t09a"><span>ایده‌ی پاک‌کن را برای بیلبورد اجرا کن و تست تمبر را رویش انجام بده.</span></label>
+    <label><input type="checkbox" id="t09b"><span>یک کاروسل ۵ اسلایدی اینستاگرام از همان ایده بساز که اسلاید اولش بیننده را وادار کند ورق بزند.</span></label>
+    <label><input type="checkbox" id="t09c"><span>دوره‌ی رایگان Google Ads Creative را تمام کن و گواهی‌اش را بگیر.</span></label>
+  </div>
+  <div class="res"><h4>منابع این فصل</h4><ul>
+    <li><a href="https://skillshop.withgoogle.com/googleads/" target="_blank" rel="noopener">Google Skillshop: Google Ads Creative Certification</a> <span class="tag">رایگان، با گواهی</span></li>
+  </ul></div>
+</section>
+
+<!-- 10 -->
+<section class="mod" id="m10">
+  <div class="mod-head"><div class="mod-num">MODULE<b>10</b></div><h2>سیستم کمپین و هویت بصری<span class="latin">CAMPAIGN SYSTEMS</span></h2></div>
+  <p class="goal"><b>هدف:</b> از «یک آگهی» به «یک کمپین» برسی، یعنی یک ایده که در ده‌ها اجرا زنده می‌ماند.</p>
+  <div class="prose">
+    <p>تفاوت آماتور و حرفه‌ای همین‌جاست. آماتور یک پوستر خوب می‌سازد. حرفه‌ای <b>سیستمی</b> می‌سازد که هر اجرای تازه‌اش، چه بیلبورد چه استوری چه بسته‌بندی، بدون دیدن لوگو هم قابل تشخیص باشد.</p>
+    <ul>
+      <li><b>ایده‌ی کمپین (Campaign idea)</b> در برابر <b>اجرا (Execution):</b> «Just Do It» ایده است و هر آگهی نایکی یک اجرا. تست: آیا می‌توانی ۱۰ اجرای متفاوت از ایده‌ات فکر کنی؟ اگر فقط یکی می‌شود، آن یک آگهی است، نه کمپین.</li>
+      <li><b>عناصر ثابت سیستم:</b> پالت رنگ، فونت‌ها، سبک عکاسی، گرید، جای لوگو و یک «دستگاه بصری» (Visual device)، یعنی یک عنصر گرافیکی تکرارشونده که امضای کمپین است.</li>
+      <li><b>کی‌ویژوال (Key visual):</b> تصویر مادر که همه‌ی فرمت‌ها از آن مشتق می‌شوند.</li>
+      <li><b>راهنمای کمپین (Guidelines):</b> چند صفحه که به طراح‌های دیگر می‌گوید چطور کمپین را درست گسترش دهند. آنچه ممنوع است (Don'ts) را هم در آن بگذار.</li>
+      <li><b>کمپین یکپارچه (Integrated):</b> همان ایده در تلویزیون، خیابان، سوشال، فروشگاه و تجربه‌ی حضوری. هر رسانه نقش خودش را دارد و فقط یک کپی از بقیه نیست.</li>
+    </ul>
+  </div>
+  <div class="ticket">
+    <div class="ticket-top"><span>JOB 10</span><span>CLIENT: پاک‌کن «آسان»</span><span>DUE: WEEK 10</span></div>
+    <label><input type="checkbox" id="t10a"><span>برای کمپین پاک‌کن، ۳ اجرای چاپی دیگر بساز که همان سیستم را دارند ولی هر کدام تصویر متفاوتی دارد.</span></label>
+    <label><input type="checkbox" id="t10b"><span>یک راهنمای کمپین ۴ صفحه‌ای بنویس: رنگ، فونت، سبک تصویر، جای لوگو و ۳ مورد ممنوع.</span></label>
+  </div>
+  <div class="res"><h4>منابع این فصل</h4><ul>
+    <li><a href="https://www.coursera.org/specializations/branding-the-creative-journey" target="_blank" rel="noopener">Branding: The Creative Journey، IE Business School در Coursera</a> <span class="tag">Audit رایگان</span></li>
+  </ul></div>
+</section>
+
+<!-- 11 -->
+<section class="mod" id="m11">
+  <div class="mod-head"><div class="mod-num">MODULE<b>11</b></div><h2>ارائه و دفاع از ایده<span class="latin">THE PITCH</span></h2></div>
+  <p class="goal"><b>هدف:</b> ایده‌ات را طوری ارائه کنی که مشتری آن را بخرد و در برابر نقد از آن دفاع کنی.</p>
+  <div class="prose">
+    <p>صحنه‌ی ارائه‌ی «Carousel» برای کداک در مد من یک درس کامل ارائه است. دان درباره‌ی ویژگی فنی دستگاه حرف نمی‌زند، درباره‌ی نوستالژی حرف می‌زند. اول احساس را می‌فروشد و بعد محصول را.</p>
+    <p>ساختار پیشنهادی یک ارائه:</p>
+    <ol>
+      <li><b>مسئله:</b> بریف را با کلمات خودت خلاصه کن تا مشتری ببیند فهمیده‌ای.</li>
+      <li><b>بینش:</b> حقیقتی که درباره‌ی مخاطب کشف کردی.</li>
+      <li><b>ایده:</b> در یک جمله. بعد مکث کن.</li>
+      <li><b>اجراها:</b> از قوی‌ترین شروع کن و نشان بده ایده در همه‌ی رسانه‌ها کار می‌کند.</li>
+      <li><b>چرا این کار جواب می‌دهد:</b> برگرد به هدف بریف.</li>
+    </ol>
+    <p><b>بازخورد:</b> وقتی مشتری می‌گوید «لوگو را بزرگ‌تر کن»، معمولاً منظورش این است که «نگرانم برند دیده نشود». به مشکل واقعی پشت درخواست جواب بده، نه به خود درخواست. از ایده دفاع کن، ولی به جزئیات اجرا نچسب.</p>
+    <p><b>تعداد گزینه‌ها:</b> حرفه‌ای‌ها معمولاً دو یا سه مسیر ارائه می‌دهند و یکی را پیشنهاد می‌کنند. ده گزینه یعنی «خودمان هم نمی‌دانیم».</p>
+  </div>
+  <div class="ticket">
+    <div class="ticket-top"><span>JOB 11</span><span>CLIENT: پاک‌کن «آسان»</span><span>DUE: WEEK 11</span></div>
+    <label><input type="checkbox" id="t11a"><span>یک ارائه‌ی ۱۰ اسلایدی از کل کمپین پاک‌کن بساز.</span></label>
+    <label><input type="checkbox" id="t11b"><span>ارائه را برای یک دوست اجرا کن (حداکثر ۵ دقیقه)، از خودت فیلم بگیر و دوباره تماشا کن.</span></label>
+  </div>
+</section>
+
+<!-- 12 -->
+<section class="mod" id="m12">
+  <div class="mod-head"><div class="mod-num">MODULE<b>12</b></div><h2>ابزارها<span class="latin">THE TOOLKIT</span></h2></div>
+  <p class="goal"><b>هدف:</b> ابزارهای استاندارد صنعت را بشناسی و بدانی نسخه‌ی رایگان هر کدام چیست.</p>
+  <div class="prose">
+    <p>ابزار آخرین چیزی است که آرت دایرکتور را خوب می‌کند، ولی بدون آن نمی‌توانی ایده‌ات را نشان بدهی. لازم نیست در همه‌ی ابزارها استاد باشی. کافی است آن‌قدر بلد باشی که ایده را تمیز و قابل‌فهم ارائه کنی.</p>
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>کار</th><th>استاندارد صنعت</th><th>جایگزین رایگان</th></tr></thead>
+    <tbody>
+      <tr><td>ویرایش عکس و ماکاپ</td><td>Adobe Photoshop</td><td><a href="https://www.photopea.com" target="_blank" rel="noopener">Photopea</a> (در مرورگر، با رابطی شبیه فتوشاپ)</td></tr>
+      <tr><td>لوگو و گرافیک برداری</td><td>Adobe Illustrator</td><td>Inkscape، یا Figma</td></tr>
+      <tr><td>لی‌آوت، ارائه و مودبورد</td><td>Figma، InDesign، Keynote</td><td><a href="https://www.figma.com" target="_blank" rel="noopener">Figma</a> (نسخه‌ی رایگان کافی است)</td></tr>
+      <tr><td>تدوین و انیماتیک</td><td>Premiere Pro</td><td><a href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" rel="noopener">DaVinci Resolve</a> (نسخه‌ی رایگانش حرفه‌ای است)، CapCut</td></tr>
+      <tr><td>موشن گرافیک</td><td>After Effects</td><td>Blender، یا انیمیشن‌های ساده در Figma</td></tr>
+      <tr><td>ایده‌یابی و مرجع</td><td>Pinterest، آرشیو جشنواره‌ها</td><td>Behance، Pinterest</td></tr>
+      <tr><td>هوش مصنوعی تصویرساز</td><td colspan="2">برای مودبورد و تست سریع ایده عالی است. ولی ایده باید مال خودت باشد، و درباره‌ی حقوق استفاده‌ی تجاری تصاویر با مشتری شفاف باش.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="ticket">
+    <div class="ticket-top"><span>JOB 12</span><span>CLIENT: YOU</span><span>DUE: WEEK 12</span></div>
+    <label><input type="checkbox" id="t12a"><span>در Figma یک قالب ارائه‌ی شخصی بساز (صفحه‌ی عنوان، بریف، ایده و اجراها) تا از این به بعد همه‌ی پروژه‌ها را با آن ارائه کنی.</span></label>
+    <label><input type="checkbox" id="t12b"><span>در Photopea یاد بگیر یک طرح را روی ماکاپ بیلبورد و موبایل بگذاری. ماکاپ‌های رایگان را در اینترنت جستجو کن.</span></label>
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="mod" id="m13">
+  <div class="mod-head"><div class="mod-num">MODULE<b>13</b></div><h2>پورتفولیو و ورود به بازار<span class="latin">THE BOOK</span></h2></div>
+  <p class="goal"><b>هدف:</b> پورتفولیویی بسازی که با آن استخدام شوی. در این صنعت، پورتفولیو از مدرک مهم‌تر است.</p>
+  <div class="prose">
+    <p>در دنیای تبلیغات به پورتفولیو «Book» می‌گویند. مدیرهای خلاق معمولاً کمتر از یک دقیقه برای هر پورتفولیو وقت می‌گذارند، پس:</p>
+    <ul>
+      <li><b>۵ تا ۸ کمپین قوی</b> بهتر از ۲۰ کار متوسط است. هر کار ضعیف به همه‌ی پورتفولیو ضربه می‌زند.</li>
+      <li><b>کمپین، نه تک‌آگهی:</b> هر پروژه حداقل ۳ اجرا در رسانه‌های مختلف داشته باشد.</li>
+      <li><b>ساختار هر پروژه:</b> مسئله، بینش، ایده (یک جمله)، اجراها و در صورت امکان نتیجه.</li>
+      <li><b>کار فرضی (Spec work) مجاز است</b> و همه‌ی دانشجوهای مدرسه‌های تبلیغات همین کار را می‌کنند. فقط برندهای واقعی انتخاب کن که مسئله‌ی واقعی دارند و روشن بنویس که کار فرضی است.</li>
+      <li><b>تنوع:</b> یک برند بزرگ، یک برند کوچک یا محلی، یک کار اجتماعی یا خیریه و یک ایده‌ی دیجیتال یا تجربی.</li>
+      <li><b>کجا منتشر کنی:</b> Behance، یک سایت شخصی ساده و یک PDF سبک برای ایمیل.</li>
+    </ul>
+    <p><b>مسابقه‌ها</b> بهترین راه دیده‌شدن جوان‌ترهاست. آگهی‌ای که در مسابقه‌های دانشجویی و جوانان برنده شود، مستقیم به چشم مدیرهای خلاق می‌رسد. معروف‌ترین‌ها: D&amp;AD New Blood، The One Show Young Ones و Cannes Young Lions. شرایط و هزینه‌ی شرکت هر سال عوض می‌شود، پس قبل از شرکت سایت هر کدام را بررسی کن.</p>
+    <p><b>اولین شغل:</b> معمولاً کارآموزی یا جونیور آرت دایرکتور در یک آژانس است. در ایران آژانس‌های تبلیغاتی و بخش‌های خلاق برندهای بزرگ و استارتاپ‌ها جای خوبی برای شروع‌اند. پورتفولیو را مستقیم برای مدیر خلاق بفرست، با یک پیام کوتاه و شخصی.</p>
+  </div>
+  <div class="ticket">
+    <div class="ticket-top"><span>JOB 13</span><span>CLIENT: YOU</span><span>DUE: WEEK 13–16</span></div>
+    <label><input type="checkbox" id="t13a"><span>کمپین دوم: یک برند ایرانی واقعی انتخاب کن و کل مسیر را طی کن (بریف، ۲۰ اسکچ، ایده، ۳ اجرای چاپی، یک استوری‌بورد و یک اجرای سوشال).</span></label>
+    <label><input type="checkbox" id="t13b"><span>کمپین سوم: یک کمپین اجتماعی یا خیریه، مثلاً برای صرفه‌جویی در آب، که فقط تصویری باشد و به زبان نیاز نداشته باشد.</span></label>
+    <label><input type="checkbox" id="t13c"><span>هر سه کمپین را روی Behance با ساختار «مسئله، بینش، ایده، اجرا» منتشر کن.</span></label>
+    <label><input type="checkbox" id="t13d"><span>پورتفولیو را برای سه آرت دایرکتور یا مدیر خلاق بفرست و از آن‌ها نقد بخواه، نه کار.</span></label>
+  </div>
+  <div class="res"><h4>منابع این فصل</h4><ul>
+    <li><a href="https://www.dandad.org/learning/shift" target="_blank" rel="noopener">D&amp;AD Shift</a>: مدرسه‌ی شبانه‌ی رایگان برای کسانی که مدرک دانشگاهی ندارند. فقط در شهرهای مشخص برگزار می‌شود <span class="tag">رایگان</span></li>
+    <li><a href="https://www.oneclub.org/education/" target="_blank" rel="noopener">The One Club Education</a>: نقد پورتفولیو و ورکشاپ <span class="tag">رایگان یا با تخفیف دانشجویی</span></li>
+  </ul></div>
+</section>
+
+<!-- plan -->
+<section class="mod" id="plan">
+  <div class="mod-head"><div class="mod-num">SCHEDULE<b>16</b></div><h2>برنامه‌ی ۱۶ هفته‌ای<span class="latin">WEEK BY WEEK</span></h2></div>
+  <div class="table-wrap plan"><table>
+    <thead><tr><th>هفته</th><th>فصل</th><th>منبع موازی</th><th>خروجی</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>۰۰ و ۰۱</td><td>راهنمای Miami Ad School</td><td>دفترچه‌ی ایده و آرشیو ۱۰ آگهی کلاسیک</td></tr>
+      <tr><td class="num">2</td><td>۰۲ ترکیب‌بندی</td><td>CalArts، هفته‌ی ۱</td><td>۳ ترکیب انتزاعی و یک پوستر بازطراحی‌شده</td></tr>
+      <tr><td class="num">3</td><td>۰۳ رنگ</td><td>CalArts، بخش رنگ</td><td>یک آگهی در ۳ پالت</td></tr>
+      <tr><td class="num">4</td><td>۰۴ تایپوگرافی</td><td>The Futur، ویدیوهای تایپوگرافی</td><td>پوستر تایپوگرافی دوزبانه</td></tr>
+      <tr><td class="num">5</td><td>۰۵ ایده</td><td>Coursera Breakthrough Ads</td><td>۲۰ اسکچ و آگهی پاک‌کن</td></tr>
+      <tr><td class="num">6</td><td>۰۶ ساختار آگهی</td><td>Coursera Breakthrough Ads</td><td>۳ تیتر برای یک عکس</td></tr>
+      <tr><td class="num">7</td><td>۰۷ عکاسی</td><td>The Futur، ویدیوهای style frame</td><td>مودبورد، فهرست شات و عکس نهایی</td></tr>
+      <tr><td class="num">8</td><td>۰۸ تیزر</td><td>The Futur Academy</td><td>استوری‌بورد و انیماتیک</td></tr>
+      <tr><td class="num">9</td><td>۰۹ رسانه‌ها</td><td>Google Skillshop</td><td>بیلبورد، کاروسل و گواهی گوگل</td></tr>
+      <tr><td class="num">10</td><td>۱۰ سیستم کمپین</td><td>Branding (IE)</td><td>۳ اجرای جدید و راهنمای کمپین</td></tr>
+      <tr><td class="num">11</td><td>۱۱ ارائه</td><td>مد من، فصل ۱ قسمت ۱۳ (The Wheel)</td><td>ارائه‌ی ۱۰ اسلایدی</td></tr>
+      <tr><td class="num">12</td><td>۱۲ ابزارها</td><td>آموزش‌های Figma و Photopea</td><td>قالب ارائه‌ی شخصی</td></tr>
+      <tr><td class="num">13–14</td><td>۱۳</td><td>تمام منابع قبلی</td><td>کمپین دوم (برند ایرانی)</td></tr>
+      <tr><td class="num">15</td><td>۱۳</td><td>تمام منابع قبلی</td><td>کمپین سوم (اجتماعی)</td></tr>
+      <tr><td class="num">16</td><td>۱۳</td><td>Behance</td><td>پورتفولیوی آنلاین و ارسال برای نقد</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p><b>عادت روزانه (۱۵ دقیقه):</b> هر روز یک کمپین برنده‌ی جایزه را نگاه کن و در دفترچه‌ات یک جمله بنویس: «ایده چه بود و تصویر چطور آن را رساند؟». آرت دایرکتورها از قدیم همین‌طور یاد گرفته‌اند.</p></div>
+</section>
+
+<!-- glossary -->
+<section class="mod" id="gloss">
+  <div class="mod-head"><div class="mod-num">GLOSSARY<b>Aa</b></div><h2>واژه‌نامه‌ی آژانس<span class="latin">AGENCY VOCABULARY</span></h2></div>
+  <dl class="gloss">
+    <dt>Brief</dt><dd>سند یک‌صفحه‌ای که مسئله، مخاطب و پیام را برای تیم خلاق مشخص می‌کند.</dd>
+    <dt>Insight</dt><dd>حقیقت انسانی کشف‌شده درباره‌ی مخاطب که ایده روی آن ساخته می‌شود.</dd>
+    <dt>SMP</dt><dd>Single-Minded Proposition: تنها پیامی که کمپین باید برساند.</dd>
+    <dt>Big Idea</dt><dd>ایده‌ی مرکزی کمپین که در همه‌ی رسانه‌ها قابل اجراست.</dd>
+    <dt>Key Visual (KV)</dt><dd>تصویر مادر کمپین.</dd>
+    <dt>Thumbnail</dt><dd>اسکچ کوچک و سریع برای ثبت ایده.</dd>
+    <dt>Comp / Scamp</dt><dd>نسخه‌ی اولیه و دستی یک آگهی برای نشان‌دادن ایده.</dd>
+    <dt>Moodboard</dt><dd>تابلوی تصاویر مرجع برای حس و سبک.</dd>
+    <dt>Pack shot</dt><dd>عکس تمیز محصول، معمولاً در انتهای آگهی.</dd>
+    <dt>Tagline / Endline</dt><dd>شعار برند یا کمپین کنار لوگو.</dd>
+    <dt>Storyboard</dt><dd>کادرهای کلیدی تیزر به ترتیب.</dd>
+    <dt>Animatic</dt><dd>استوری‌بورد متحرک با صدا برای تست ریتم.</dd>
+    <dt>Treatment</dt><dd>پیشنهاد کتبی و تصویری کارگردان برای اجرای تیزر.</dd>
+    <dt>PPM</dt><dd>Pre-Production Meeting: جلسه‌ی نهایی تأیید جزئیات قبل از فیلمبرداری.</dd>
+    <dt>Offline / Online</dt><dd>تدوین اولیه‌ی روایت / نسخه‌ی نهایی با افکت و رنگ.</dd>
+    <dt>OOH</dt><dd>Out-Of-Home: تبلیغات محیطی مثل بیلبورد، ایستگاه و مترو.</dd>
+    <dt>ATL / BTL</dt><dd>رسانه‌های انبوه مثل تلویزیون و بیلبورد / رسانه‌های هدفمند مثل فروشگاه و ایونت.</dd>
+    <dt>Integrated</dt><dd>کمپینی که در همه‌ی رسانه‌ها با یک ایده اجرا می‌شود.</dd>
+    <dt>Spec work</dt><dd>کار فرضی برای برند واقعی، مخصوص پورتفولیو.</dd>
+    <dt>Book</dt><dd>پورتفولیوی خلاق.</dd>
+    <dt>Pitch</dt><dd>ارائه‌ی رقابتی برای گرفتن مشتری یا فروش ایده.</dd>
+    <dt>Guidelines</dt><dd>راهنمای استفاده‌ی درست از هویت بصری یا کمپین.</dd>
+  </dl>
+</section>
+
+<!-- books -->
+<section class="mod" id="books">
+  <div class="mod-head"><div class="mod-num">READING<b>📖</b></div><h2>کتاب‌ها و مسیر بعدی<span class="latin">FURTHER STUDY</span></h2></div>
+  <div class="prose">
+    <h3>کتاب‌ها</h3>
+    <ul>
+      <li><b>Hey Whipple, Squeeze This</b>، نوشته‌ی Luke Sullivan: کلاسیک‌ترین کتاب تبلیغات خلاق. همراه فصل‌های ۵ و ۶ بخوان.</li>
+      <li><b>Art Direction Explained, At Last!</b>، نوشته‌ی Steven Heller و Véronique Vienne: خود شغل آرت دایرکشن در رسانه‌های مختلف.</li>
+      <li><b>Cutting Edge Advertising</b>، نوشته‌ی Jim Aitchison: گفتگو با خلاق‌های بزرگ و تحلیل آگهی‌های چاپی.</li>
+      <li><b>Pick Me</b>، نوشته‌ی Nancy Vonk و Janet Kestin: ورود به آژانس و ساختن مسیر شغلی.</li>
+      <li><b>Ogilvy on Advertising</b>، نوشته‌ی David Ogilvy: قواعد کلاسیک لی‌آوت و تیتر از زبان خود او.</li>
+    </ul>
+    <h3>بعد از این دوره، اگر خواستی حرفه‌ای‌تر ادامه بدهی</h3>
+    <ul>
+      <li><a href="https://www.dandad.org/masterclasses/course/training-art-direction-advertising/" target="_blank" rel="noopener">مسترکلاس یک‌روزه‌ی Art Direction در D&amp;AD</a></li>
+      <li><a href="https://www.arts.ac.uk/subjects/communication-and-graphic-design/short-courses/art-direction/art-direction-short-course-chelsea" target="_blank" rel="noopener">دوره‌ی کوتاه Art Direction در UAL لندن</a> (آنلاین یا حضوری)</li>
+      <li><a href="https://www.labasad.com/en/master/online-master-in-art-direction/" target="_blank" rel="noopener">ارشد آنلاین Art Direction در LABASAD</a></li>
+      <li><a href="https://miamiadschool.com/programs/portfolio-art-direction/" target="_blank" rel="noopener">برنامه‌ی پورتفولیوی Miami Ad School</a> · <a href="https://brandcenter.vcu.edu/program/masters-program/art-direction/" target="_blank" rel="noopener">VCU Brandcenter</a> · <a href="https://www.schoolcommunicationarts.com/courses/london-portfolio-course" target="_blank" rel="noopener">School of Communication Arts</a></li>
+      <li><a href="https://www.domestika.org/en/courses/346-art-direction-and-illustration-for-advertising" target="_blank" rel="noopener">Art Direction and Illustration for Advertising، Domestika</a> (ارزان، مکمل خوبی برای فصل ۵)</li>
+    </ul>
+  </div>
+</section>
+
+<footer>این دوره برای یادگیری شخصی نوشته شده است. پیشرفت تمرین‌ها فقط در مرورگر خودت ذخیره می‌شود. پاک‌کردن داده‌های مرورگر آن را صفر می‌کند.</footer>
+</main>
+</div>
+
+<script>
+(function(){
+  var KEY='ad-course-progress-v1';
+  var boxes=[].slice.call(document.querySelectorAll('.ticket input[type=checkbox]'));
+  var state={};
+  try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){state={}}
+  var fa=function(n){return String(n).replace(/\d/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'[d]})};
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+  function render(){
+    var done=boxes.filter(function(b){return b.checked}).length;
+    document.getElementById('bar').style.width=(boxes.length?done/boxes.length*100:0)+'%';
+    document.getElementById('progress-text').textContent=fa(done)+' از '+fa(boxes.length)+' تمرین انجام شده';
+    document.querySelectorAll('section.mod').forEach(function(sec){
+      var bs=sec.querySelectorAll('.ticket input');
+      var link=document.querySelector('#toc a[href="#'+sec.id+'"]');
+      if(!link||!bs.length)return;
+      var all=[].every.call(bs,function(b){return b.checked});
+      link.classList.toggle('done',all);
+      link.querySelector('.n').textContent=all?'✓':sec.id.replace('m','');
+    });
+  }
+  boxes.forEach(function(b){
+    b.checked=!!state[b.id];
+    b.addEventListener('change',function(){state[b.id]=b.checked;save();render()});
+  });
+  document.getElementById('reset').addEventListener('click',function(){
+    var btn=this;
+    if(btn.dataset.armed){state={};save();boxes.forEach(function(b){b.checked=false});render();btn.textContent='پاک‌کردن پیشرفت';delete btn.dataset.armed;return}
+    btn.dataset.armed='1';btn.textContent='مطمئنی؟ دوباره بزن';
+    setTimeout(function(){if(btn.dataset.armed){delete btn.dataset.armed;btn.textContent='پاک‌کردن پیشرفت'}},3000);
+  });
+  render();
+})();
+</script>
